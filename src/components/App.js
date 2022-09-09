@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import SearchInput from './Searchinput';
 
@@ -12,8 +13,9 @@ class App extends React.Component {
     }
 
     // Callback Function on App
-    onSearchSubmit(entry) {
-        console.log(entry)
+    async onSearchSubmit(entry) {
+       const response = await axios.get(`https://pixabay.com/api/?key=12441692-8b547b10cfa32c04a4e52f32d&q=${entry}&image_type=photo`)
+       console.log(response.data.hits)
     }
 
     render() {
